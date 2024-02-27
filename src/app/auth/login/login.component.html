@@ -1,0 +1,56 @@
+<div
+  class="flex justify-center items-center h-screen bg-green-100"
+  [@fadeInOut]
+>
+  <div class="bg-white rounded-lg shadow-xl p-10 w-96">
+    <h2
+      class="text-center text-3xl font-bold text-green-600 mb-8"
+      id="loginTitle"
+    >
+      Connexion SIIL
+    </h2>
+    <form (ngSubmit)="onSubmit()" class="space-y-5">
+      <div>
+        <label
+          for="username"
+          class="block text-gray-700 text-sm font-bold mb-2"
+        >
+          Nom d'utilisateur :
+        </label>
+        <input
+          type="text"
+          id="username"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Entrez votre nom d'utilisateur"
+          required
+        />
+      </div>
+      <div class="relative">
+        <label
+          for="password"
+          class="block text-gray-700 text-sm font-bold mb-2"
+        >
+          Mot de passe :
+        </label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          type="password"
+          id="password"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Entrez votre mot de passe"
+          required
+        />
+        <i
+          (click)="toggleShowPassword()"
+          class="fas fa-eye cursor-pointer absolute right-3 top-11"
+        ></i>
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Se connecter
+      </button>
+    </form>
+  </div>
+</div>

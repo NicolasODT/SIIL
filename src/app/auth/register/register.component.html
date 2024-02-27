@@ -1,0 +1,156 @@
+<div class="flex justify-center items-center min-h-screen bg-green-100 p-10">
+  <div class="bg-white rounded-lg shadow-xl p-10 w-full max-w-4xl">
+    <h2
+      class="text-center text-3xl font-bold text-green-600 mb-8"
+      id="registerTitle"
+    >
+      Inscription SIIL
+    </h2>
+    <form (ngSubmit)="onRegister()" class="space-y-5">
+      <div>
+        <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+          >Nom :</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Entrez votre nom"
+          required
+        />
+      </div>
+      <div>
+        <label for="surname" class="block text-gray-700 text-sm font-bold mb-2"
+          >Prénom :</label
+        >
+        <input
+          type="text"
+          id="surname"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Entrez votre prénom"
+          required
+        />
+      </div>
+      <div>
+        <label for="email" class="block text-gray-700 text-sm font-bold mb-2"
+          >E-mail :</label
+        >
+        <input
+          type="email"
+          id="email"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Entrez votre email"
+          required
+        />
+      </div>
+      <div class="relative">
+        <label for="password" class="block text-gray-700 text-sm font-bold mb-2"
+          >Mot de passe :</label
+        >
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          id="password"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Entrez votre mot de passe"
+          required
+        />
+        <i
+          (click)="toggleShowPassword()"
+          class="fas fa-eye cursor-pointer absolute right-3 top-11"
+        ></i>
+      </div>
+      <div class="relative">
+        <label
+          for="confirmPassword"
+          class="block text-gray-700 text-sm font-bold mb-2"
+          >Confirmez le mot de passe :</label
+        >
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          id="confirmPassword"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Confirmez votre mot de passe"
+          required
+        />
+        <i
+          (click)="toggleShowPassword()"
+          class="fas fa-eye cursor-pointer absolute right-3 top-11"
+        ></i>
+      </div>
+      <div>
+        <label
+          for="telephone"
+          class="block text-gray-700 text-sm font-bold mb-2"
+          >Téléphone :</label
+        >
+        <input
+          type="tel"
+          id="telephone"
+          pattern="\+?[0-9\s]+"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Entrez votre numéro de téléphone (+33...)"
+          required
+        />
+      </div>
+      <div>
+        <label for="adresse" class="block text-gray-700 text-sm font-bold mb-2"
+          >Adresse :</label
+        >
+        <input
+          type="text"
+          id="adresse"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          placeholder="Entrez votre adresse"
+          required
+        />
+      </div>
+      <div>
+        <label for="role" class="block text-gray-700 text-sm font-bold mb-2"
+          >Rôle :</label
+        >
+        <select
+          id="role"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+          required
+        >
+          <option value="" disabled selected>Choisissez un rôle</option>
+          <option value="admin">Administrateur</option>
+          <option value="user">Utilisateur</option>
+        </select>
+      </div>
+      <div class="flex items-center space-x-6">
+        <div class="shrink-0">
+          <img
+            class="h-16 w-16 object-cover rounded-full"
+            [src]="profileImageUrl"
+            alt="Photo de profil"
+          />
+        </div>
+        <div class="block">
+          <span class="sr-only">Choisir une photo de profil</span>
+          <input
+            type="file"
+            id="profileImage"
+            class="hidden"
+            (change)="OnProfileImageChange($event)"
+            accept="image/*"
+            placeholder="Choisissez une photo de profil"
+          />
+          <button
+            type="button"
+            class="cursor-pointer bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            onclick="document.getElementById('profileImage').click()"
+          >
+            Choisir une photo
+          </button>
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+      >
+        S'inscrire
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { NavbarComponent } from '../../core/navbar/navbar.component';
+import { SidebarComponent } from '../../core/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
+  imports : [NavbarComponent, SidebarComponent],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
   animations: [

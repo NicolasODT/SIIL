@@ -1,0 +1,36 @@
+<!-- Navbar Component Template -->
+<nav class="bg-green-200 p-4 text-white flex justify-between items-center">
+  <div class="navbar-brand">
+    <a href="/">
+      <img
+        src="../../assets/images/Siil-logo.png"
+        alt="SIIL Logo"
+        class="h-8"
+      />
+    </a>
+  </div>
+  <!-- Barre de recherche réduite -->
+  <div class="navbar-search w-2/3">
+    <input type="text" placeholder="Recherche..." class="w-full p-2 rounded" />
+  </div>
+  <div class="navbar-profile relative">
+    <img
+      src="path-to-user-profile/user-profile.png"
+      alt="User Profile"
+      class="h-10 w-10 rounded-full cursor-pointer"
+      (click)="toggleUserMenu()"
+    />
+    @if (showUserMenu) {
+    <div
+      class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20 text-black"
+    >
+      <a href="/profile" class="block px-4 py-2 text-sm hover:bg-gray-100"
+        >Profil</a
+      >
+      <a href="/logout" class="block px-4 py-2 text-sm hover:bg-gray-100"
+        >Déconnexion</a
+      >
+    </div>
+    }
+  </div>
+</nav>

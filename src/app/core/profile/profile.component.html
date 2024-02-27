@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+
+<div class="bg-green-200 shadow overflow-hidden sm:rounded-lg">
+  <div class="px-4 py-5 sm:px-6">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      Profile Information
+    </h3>
+    <p class="mt-1 max-w-2xl text-sm text-gray-500">
+      Personal details and contact information.
+    </p>
+  </div>
+
+  @if (!editMode) {
+  <div class="border-t border-gray-200">
+    <dl>
+      <div
+        class="bg-green-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+      >
+        <dt class="text-sm font-medium text-gray-500">Full Name:</dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          {{ profileForm.get("fullName")?.value }}
+        </dd>
+      </div>
+      <!-- ... other fields ... -->
+    </dl>
+  </div>
+  } @else {
+  <form
+    class="bg-green-200 shadow overflow-hidden sm:rounded-lg"
+    (ngSubmit)="onSave()"
+  >
+    <div class="bg-green-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <dt class="text-sm font-medium text-gray-500">Full Name:</dt>
+      <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+        <input
+          type="text"
+          formControlName="fullName"
+          placeholder="Full Name"
+          class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+        />
+      </dd>
+    </div>
+    <!-- ... other fields ... -->
+    <div class="px-4 py-3 bg-green-50 text-right sm:px-6">
+      <button type="button" (click)="toggleEditMode()" class="...">
+        Cancel
+      </button>
+      <button type="submit" class="...">Save Changes</button>
+    </div>
+  </form>
+  }
+
+  <div class="px-4 py-3 bg-green-50 text-right sm:px-6">
+    @if (!editMode) {
+    <button type="button" (click)="toggleEditMode()" class="...">
+      Edit Profile
+    </button>
+    }
+  </div>
+</div>

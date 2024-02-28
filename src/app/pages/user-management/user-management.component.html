@@ -24,16 +24,8 @@
   <div *ngIf="currentUser">
     <form (submit)="saveUser()">
       <ng-container *ngIf="currentUser">
-        <input
-          type="text"
-          [(ngModel)]="currentUser.username"
-          placeholder="Username"
-        />
-        <input
-          type="email"
-          [(ngModel)]="currentUser.email"
-          placeholder="Email"
-        />
+        <input type="text" [(ngModel)]="currentUser" placeholder="Username" />
+        <input type="email" [(ngModel)]="currentUser" placeholder="Email" />
       </ng-container>
       <button type="submit">Save</button>
       <button type="button" (click)="cancelEdit()">Cancel</button>

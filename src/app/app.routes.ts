@@ -6,7 +6,7 @@ import { HomepageComponent } from './pages/home/home.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/UserManagement', pathMatch: 'full' },
+    { path: '', redirectTo: '/homepage', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent, data: { title: 'Register' } },
     { path: 'Profile', component: ProfileComponent , data: { title: 'Profile' } },

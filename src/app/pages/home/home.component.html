@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+
+<div class="homepage-container bg-green-100">
+  @if (isLoggedIn()) {
+  <p class="text-black text-center font-bold">
+    Welcome back, {{ user().name }}!
+  </p>
+  } @else {
+  <p class="text-black text-center font-bold">Please log in to continue.</p>
+  }
+</div>

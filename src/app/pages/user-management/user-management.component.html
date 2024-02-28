@@ -1,0 +1,42 @@
+<!-- user-management.component.html -->
+<div>
+  <h2>User Management</h2>
+
+  <!-- Afficher les informations de l'utilisateur connecté -->
+  <div *ngIf="currentUser">
+    <p>Logged in as: {{ currentUser?.username }} ({{ currentUser?.email }})</p>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <!-- Liste des utilisateurs -->
+  <ng-container *ngIf="users && users.length > 0; else noUsers">
+    <div *ngFor="let user of users; trackBy: trackById">
+      <span>{{ user.username }} ({{ user.email }})</span>
+      <button (click)="startEditUser(user)">Edit</button>
+      <button (click)="deleteUser(user.id)">Delete</button>
+    </div>
+  </ng-container>
+  <ng-template #noUsers>
+    <div>No users available.</div>
+  </ng-template>
+
+  <!-- Formulaire d'édition de l'utilisateur connecté -->
+  <div *ngIf="currentUser">
+    <form (submit)="saveUser()">
+      <ng-container *ngIf="currentUser">
+        <input
+          type="text"
+          [(ngModel)]="currentUser.username"
+          placeholder="Username"
+        />
+        <input
+          type="email"
+          [(ngModel)]="currentUser.email"
+          placeholder="Email"
+        />
+      </ng-container>
+      <button type="submit">Save</button>
+      <button type="button" (click)="cancelEdit()">Cancel</button>
+    </form>
+  </div>
+</div>
